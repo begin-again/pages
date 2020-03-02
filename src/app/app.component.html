@@ -7,15 +7,16 @@
             (click)="currentPage = currentPage - 1"
             >prev</a>
         </li>
-        <li 
-            *ngFor="let image of images; let i = 'index'; last as isLast; first as isFirst"
+        <ng-container *ngFor="let image of images; let i = 'index'; last as isLast; first as isFirst">
+        <li *ngIf="checkWindowIndex(i)"
         >
             <a 
                 [ngClass]="{'is-current': i === currentPage}" 
                 (click)="currentPage = i"
                 class="button pagination-link">{{i+1}}
             </a>
-        </li>   
+        </li>
+        </ng-container>
         <li>
             <a class="pagination-next" 
             (click)="currentPage = currentPage + 1"
