@@ -9,7 +9,7 @@ export class ClassDirective {
     console.log('directive used');
   }
 
-  @Input() set backgroundColor(color: string){
+  @Input('appClass') set backgroundColor(color: string){
     this.element.nativeElement.style.backgroundColor = color;
   }
 
