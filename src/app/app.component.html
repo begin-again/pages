@@ -7,7 +7,7 @@
             (click)="currentPage = currentPage - 1"
             >prev</a>
         </li>
-        <ng-container *ngFor="let image of images; let i = 'index'; last as isLast; first as isFirst">
+        <ng-container *appTimes="images.length; let i = index">
         <li *ngIf="checkWindowIndex(i)"
         >
             <a 
