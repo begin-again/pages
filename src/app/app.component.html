@@ -1,1 +1,33 @@
-<h1>Hello, World</h1>
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    
+    <ul class="pagination-list">
+        <li>
+            <a class="pagination-previous" 
+            [ngClass]="{'disabled': currentPage === 0}"
+            (click)="currentPage = currentPage - 1"
+            >prev</a>
+        </li>
+        <li 
+            *ngFor="let image of images; let i = 'index'; last as isLast; first as isFirst"
+        >
+            <a 
+                [ngClass]="{'is-current': i === currentPage}" 
+                (click)="currentPage = i"
+                class="button pagination-link">{{i+1}}
+            </a>
+        </li>   
+        <li>
+            <a class="pagination-next" 
+            (click)="currentPage = currentPage + 1"
+            [ngClass]="{'disabled': currentPage === (images.length - 1 )}"
+            >next</a>
+        </li>
+    </ul>
+</nav>    
+
+<section class="section">
+    <div class="container is-centered is-fluid is-fullwidth">
+        <h2 class="has-text-centered">{{images[currentPage].title}}</h2>
+        <img class="is-fullwidth" [src]="images[currentPage].url" [alt]="images[currentPage].title">
+    </div>
+</section>
