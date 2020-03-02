@@ -3,7 +3,7 @@
     <ul class="pagination-list" appClass>
         <li>
             <a class="pagination-previous" 
-            [ngClass]="{'disabled': currentPage === 0}"
+            [appClass]="{'disabled': currentPage === 0}"
             (click)="currentPage = currentPage - 1"
             >prev</a>
         </li>
@@ -11,7 +11,7 @@
         <li *ngIf="checkWindowIndex(i)"
         >
             <a 
-                [ngClass]="{'is-current': i === currentPage}" 
+                [appClass]="{'is-current': i === currentPage}" 
                 (click)="currentPage = i"
                 class="button pagination-link">{{i+1}}
             </a>
@@ -20,7 +20,7 @@
         <li>
             <a class="pagination-next" 
             (click)="currentPage = currentPage + 1"
-            [ngClass]="{'disabled': currentPage === (images.length - 1 )}"
+            [appClass]="{'disabled': currentPage === (images.length - 1 )}"
             >next</a>
         </li>
     </ul>   
